@@ -1,3 +1,6 @@
+const express = require("express");
+
+const { app } = require("@heroku-cli/command/lib/flags");
 
 let buttonColors = ["red", "blue", "green", "yellow"];
 
@@ -80,3 +83,12 @@ function startOver() {
     gamePattern = [];
     started = false;
 }
+
+let port = process.env.PORT;
+if (port == null || port == ""){
+    port = 3000;
+}
+
+app.listen(3000, function(){
+    console.log("Successfully started server!");
+});
